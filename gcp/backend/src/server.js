@@ -147,7 +147,8 @@ function antiSpam(limit, windowMs) {
 
 function safeAssetUrl(fileName) {
   if (!PUBLIC_ASSET_BASE_URL) return '';
-  return `${PUBLIC_ASSET_BASE_URL}/uploads/${fileName}`;
+  const normalized = normalizePath(fileName);
+  return `${PUBLIC_ASSET_BASE_URL}/${normalized}`;
 }
 
 function normalizePath(rawPath) {
