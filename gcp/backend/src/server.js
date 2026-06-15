@@ -70,13 +70,24 @@ function parseCookies(req) {
   return out;
 }
 
-function setSessionCookie(res, token) {
-  const maxAgeSec = Math.floor(SESSION_TTL_MS / 1000);
-  res.setHeader('Set-Cookie', `idl_admin_sid=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAgeSec}`);
+function isHttpsRequest(req) {
+  const forwardedProto = String(req.headers['x-forwarded-proto'] || '').split(',')[0].trim().toLowerCase();
+  return req.secure || forwardedProto === 'https';
 }
 
-function clearSessionCookie(res) {
-  res.setHeader('Set-Cookie', 'idl_admin_sid=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0');
+function setSessionCookie(req, res, token) {
+  const maxAgeSec = Math.floor(SESSION_TTL_MS / 1000);
+  const secureAttrs = isHttpsRequest(req)
+    ? '; SameSite=None; Secure'
+    : '; SameSite=Lax';
+  res.setHeader('Set-Cookie', `idl_admin_sid=${encodeURIComponent(token)}; Path=/; HttpOnly${secureAttrs}; Max-Age=${maxAgeSec}`);
+}
+
+function clearSessionCookie(req, res) {
+  const secureAttrs = isHttpsRequest(req)
+    ? '; SameSite=None; Secure'
+    : '; SameSite=Lax';
+  res.setHeader('Set-Cookie', `idl_admin_sid=; Path=/; HttpOnly${secureAttrs}; Max-Age=0`);
 }
 
 function verifySessionToken(token) {
@@ -169,12 +180,12 @@ app.post('/api/admin/login', (req, res) => {
     return res.status(401).json({ error: 'Invalid credentials' });
   }
 
-  setSessionCookie(res, createSessionToken());
+  setSessionCookie(req, res, createSessionToken());
   return res.json({ ok: true });
 });
 
 app.post('/api/admin/logout', authRequired, (_req, res) => {
-  clearSessionCookie(res);
+  clearSessionCookie(_req, res);
   return res.json({ ok: true });
 });
 

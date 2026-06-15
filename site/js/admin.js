@@ -34,6 +34,13 @@
     return { 'Content-Type': 'application/json' };
   }
 
+  function adminFetch(path, options) {
+    const requestOptions = Object.assign({}, options || {}, {
+      credentials: 'include'
+    });
+    return fetch(idlApiUrl(path), requestOptions);
+  }
+
   function parseLinks(value) {
     return String(value || '')
       .split('\n')
@@ -73,7 +80,7 @@
   }
 
   function loadArticles() {
-    return fetch(idlApiUrl('/api/admin/articles'))
+    return adminFetch('/api/admin/articles')
       .then(function (res) {
         if (!res.ok) throw new Error('Unauthorized');
         return res.json();
@@ -101,7 +108,7 @@
   }
 
   function loadMessages() {
-    return fetch(idlApiUrl('/api/admin/messages'))
+    return adminFetch('/api/admin/messages')
       .then(function (res) { return res.json(); })
       .then(function (items) {
         messagesList.innerHTML = items.map(function (item) {
@@ -120,7 +127,7 @@
   }
 
   function loadComments() {
-    return fetch(idlApiUrl('/api/admin/comments'))
+    return adminFetch('/api/admin/comments')
       .then(function (res) { return res.json(); })
       .then(function (items) {
         commentsList.innerHTML = items.map(function (item) {
@@ -139,7 +146,7 @@
         commentsList.querySelectorAll('[data-comment-id]').forEach(function (button) {
           button.addEventListener('click', function () {
             const commentId = button.getAttribute('data-comment-id');
-            fetch('/api/admin/comments/' + encodeURIComponent(commentId), {
+            adminFetch('/api/admin/comments/' + encodeURIComponent(commentId), {
               method: 'DELETE'
             }).then(function () {
               loadComments();
@@ -168,7 +175,7 @@
     event.preventDefault();
     const password = String(new FormData(loginForm).get('password') || '');
 
-    fetch(idlApiUrl('/api/admin/login'), {
+    adminFetch('/api/admin/login', {
       method: 'POST',
       headers: jsonHeaders(),
       body: JSON.stringify({ password: password })
@@ -205,7 +212,7 @@
     const method = selectedId ? 'PUT' : 'POST';
     const url = selectedId ? '/api/admin/articles/' + encodeURIComponent(selectedId) : '/api/admin/articles';
 
-    fetch(idlApiUrl(url), {
+    adminFetch(url, {
       method: method,
       headers: jsonHeaders(),
       body: JSON.stringify(payload)
@@ -236,7 +243,7 @@
     const data = new FormData();
     data.append('file', file);
 
-    fetch(idlApiUrl('/api/admin/upload'), {
+    adminFetch('/api/admin/upload', {
       method: 'POST',
       body: data
     })
@@ -263,7 +270,7 @@
       return;
     }
 
-    fetch(idlApiUrl('/api/admin/articles/' + encodeURIComponent(selectedId)), {
+    adminFetch('/api/admin/articles/' + encodeURIComponent(selectedId), {
       method: 'DELETE'
     })
       .then(function (res) {
@@ -280,7 +287,7 @@
   });
 
   logoutBtn.addEventListener('click', function () {
-    fetch(idlApiUrl('/api/admin/logout'), {
+    adminFetch('/api/admin/logout', {
       method: 'POST'
     }).then(function () {
       sessionStatus.textContent = 'Logged out.';
@@ -289,7 +296,7 @@
     });
   });
 
-  fetch(idlApiUrl('/api/admin/me'))
+  adminFetch('/api/admin/me')
     .then(function (res) {
       if (!res.ok) throw new Error('No session');
       return res.json();
