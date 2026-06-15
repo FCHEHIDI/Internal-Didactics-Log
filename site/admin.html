@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Internal Didactics Log</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page-home">
+  <canvas id="fractal-bg" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">IDL</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Public</a>
+        <a href="admin.html" class="nav-link active" aria-current="page">Admin</a>
+      </div>
+    </nav>
+
+    <main class="container entry-content">
+      <section class="section" aria-labelledby="admin-login-title">
+        <h2 id="admin-login-title" class="section-title">Admin Access</h2>
+        <form id="admin-login-form" class="admin-form">
+          <div class="admin-field">
+            <label for="admin-password">Password</label>
+            <input id="admin-password" name="password" type="password" required>
+          </div>
+          <button type="submit" class="feed-btn">Sign in</button>
+          <span id="admin-login-status" class="feed-status" aria-live="polite"></span>
+        </form>
+      </section>
+
+      <section id="admin-panel" class="section" hidden>
+        <h2 class="section-title">Content Management</h2>
+        <div class="feed-toolbar" style="margin-bottom: 1rem;">
+          <button id="admin-logout" type="button" class="feed-btn">Logout</button>
+          <span id="admin-session-status" class="feed-status" aria-live="polite"></span>
+        </div>
+
+        <div class="admin-grid">
+          <form id="article-form" class="admin-form">
+            <input type="hidden" id="article-id">
+            <div class="admin-field admin-field-full">
+              <label for="article-title">Title</label>
+              <input id="article-title" required>
+            </div>
+            <div class="admin-field">
+              <label for="article-slug">Slug</label>
+              <input id="article-slug">
+            </div>
+            <div class="admin-field">
+              <label for="article-published">Published</label>
+              <select id="article-published">
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="article-summary">Summary</label>
+              <textarea id="article-summary" rows="3" required></textarea>
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="article-content">Content HTML</label>
+              <textarea id="article-content" rows="8" required></textarea>
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="article-cover">Cover image URL</label>
+              <input id="article-cover">
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="article-upload">Upload media</label>
+              <input id="article-upload" type="file" accept="image/*,video/*">
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="article-video">Video URL (optional)</label>
+              <input id="article-video">
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="article-tags">Tags (comma-separated)</label>
+              <input id="article-tags">
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="article-links">Links (one per line: Label|URL)</label>
+              <textarea id="article-links" rows="4"></textarea>
+            </div>
+            <div class="admin-actions">
+              <button type="submit" class="feed-btn">Save article</button>
+              <button id="article-reset" type="button" class="feed-btn">New article</button>
+              <button id="article-delete" type="button" class="feed-btn">Delete</button>
+              <span id="article-status" class="feed-status" aria-live="polite"></span>
+            </div>
+          </form>
+
+          <div>
+            <h3 class="profile-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Articles</h3>
+            <div id="admin-articles-list" class="admin-list"></div>
+          </div>
+        </div>
+
+        <div class="admin-grid" style="margin-top: 2rem;">
+          <div>
+            <h3 class="profile-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Messages</h3>
+            <div id="admin-messages-list" class="admin-list"></div>
+          </div>
+          <div>
+            <h3 class="profile-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Comments</h3>
+            <div id="admin-comments-list" class="admin-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/fractal-bg.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/runtime.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

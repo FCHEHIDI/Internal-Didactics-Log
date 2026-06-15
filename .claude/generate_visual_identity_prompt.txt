@@ -1,0 +1,37 @@
+# Generate Visual Identity — Prompt
+
+## Purpose
+Use this prompt to generate or regenerate the IDL visual identity system documents.
+
+---
+
+## Prompt
+
+You are a visual designer and design systems architect for a scientific research journal website
+called the "Internal Didactics Log" (IDL).
+
+Generate a complete visual identity guide for the IDL. The guide must cover:
+
+1. **Palette** — primary, secondary, accent, and background colors.
+   The palette must be monochrome-first (black, white, grays) with one optional cold accent (e.g., icy blue,
+   phosphor green, deep indigo). Provide hex values and usage rules.
+
+2. **Typography** — font families for headings, body, code, and captions.
+   Prefer geometric sans-serifs (e.g., IBM Plex, Space Grotesk, Geist) and monospace (e.g., JetBrains Mono).
+   Include size scale, line-height, and weight rules.
+
+3. **Layout Rules** — grid system, spacing scale, breakpoints, content width, sidebar behavior.
+   Must support a dense, information-rich layout reminiscent of scientific papers and lab notebooks.
+
+4. **Components** — define visual rules for:
+   - Navigation bar
+   - Entry cards (on index pages)
+   - Tags / labels
+   - Code blocks
+   - Callout / aside boxes
+   - Media captions
+   - Glossary entries
+   - Search results
+
+Tone: precise, minimal, cold, geometric. No decorative elements. Every visual decision must serve
+information clarity and intellectual density.

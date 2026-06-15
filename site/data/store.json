@@ -1,0 +1,21 @@
+{
+  "articles": [
+    {
+      "id": "0f3c8d9b-3f3c-4a6f-9d7f-7a5e1e9d2f11",
+      "title": "June 15, 2026 — System Architecture Notes (Raw Annotations)",
+      "slug": "june-15-2026-system-architecture-notes-raw-annotations",
+      "summary": "Raw annotations on kernel behavior, SKE protocol characteristics, cognitive load, and early architectural hypotheses.",
+      "contentHtml": "<h2>Observation: Kernel Behavior &amp; Conceptual Stability</h2><ul><li>Kernel structure tends to converge toward a deterministic state machine.</li><li>Attempts to add flexibility introduce noise, so system coherence decreases.</li><li>Removing unnecessary layers increases clarity and reduces cognitive load.</li><li>Kernel appears to require a strict separation between logic and execution.</li><li>Early signs suggest invariants can serve as the primary stabilizing mechanism.</li></ul><h2>Observation: SKE Protocol Characteristics</h2><ul><li>SKE naturally forms a 3-boundary model: cognitive → scheduling → execution.</li><li>Message types (JobSpec, EngineRequest, EngineResult) remain stable across iterations.</li><li>Security invariants appear to be the correct abstraction for trust boundaries.</li><li>Protocol complexity remains low if semantics stay inside the kernel.</li></ul><h2>Measurement: Cognitive Load During Design</h2><ul><li>High load when mixing conceptual layers (kernel + scheduler).</li><li>Lower load when isolating each layer and evaluating independently.</li><li>Visual diagrams reduce ambiguity by roughly 40–60 percent (subjective estimate).</li><li>Fractal/geometric visual identity improves focus unexpectedly but consistently.</li></ul><h2>Hypotheses</h2><ol><li>Kernel must remain the single source of cognitive semantics.</li><li>Scheduler must remain purely operational, with no reasoning.</li><li>Engines must remain stateless and replaceable.</li><li>Security invariants must be first-class, not post-hoc.</li><li>Agentic general architecture is viable only if invariants are stable.</li></ol><h2>Evaluation: Current Architecture State</h2><ul><li>Kernel concept: stable enough for first formalization.</li><li>SKE: requires compression into a minimal formal spec.</li><li>Invariants: partially defined and need consolidation.</li><li>Agentic layer: conceptual shape emerging, not ready for formalization.</li><li>Visual identity: consistent direction; supports cognitive workflow.</li></ul><h2>Insight</h2><ul><li>System coherence increases when each layer has one responsibility.</li><li>Invariants act as anchors for reasoning and design decisions.</li><li>Architecture behaves like a constraint-driven system, not a feature-driven one.</li><li>Early formalization reduces future refactoring cost significantly.</li></ul><h2>Next Steps</h2><ul><li>Refine kernel invariants and consolidate them into a minimal stable set.</li><li>Draft a minimal kernel spec focused on state, transitions, and invariants.</li><li>Compress SKE into a one-page formal spec and remove redundancy.</li><li>Define failure modes and identify weak points in the architecture.</li><li>Map agentic layers and outline responsibilities without implementation.</li><li>Reassess trust boundaries and verify alignment with invariants.</li></ul><h2>Closing Thought</h2><p>This entry captures the first measurable movements of the system: kernel stabilization, protocol simplification, and invariant emergence. The IDL will serve as the running log for tracking these shifts, validating hypotheses, and documenting the evolution of the architecture over time.</p>",
+      "coverImage": "/assets/Medias/Pictures/fractalforestbythelake.jpeg",
+      "mediaVideo": "",
+      "tags": ["kernel", "ske", "invariants", "architecture", "notes"],
+      "links": [],
+      "published": true,
+      "createdAt": "2026-06-15T08:00:00.000Z",
+      "updatedAt": "2026-06-15T08:00:00.000Z",
+      "likeCount": 0
+    }
+  ],
+  "comments": [],
+  "messages": []
+}

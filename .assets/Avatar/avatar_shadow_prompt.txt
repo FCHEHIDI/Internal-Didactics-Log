@@ -1,0 +1,27 @@
+# Avatar Shadow / Silhouette — Image Generation Prompts
+
+## Artistic Direction
+A stylized, abstract silhouette for use as an avatar or profile identity image.
+Must feel scientific, intellectual, slightly anonymous. Monochrome. High contrast. Expressionist minimalism.
+
+---
+
+## Variant 1 — Geometric Shadow Figure
+"A minimalist human silhouette constructed entirely from geometric shapes — triangles, rectangles, circles.
+Black figure on white, or white on black. No facial features. Abstract yet recognizably a person. Profile crop."
+
+## Variant 2 — Fractal Edge Portrait
+"A portrait silhouette whose edges are replaced by fractal noise — the outline dissolves into recursive detail.
+Monochrome. Black on white. Expressionist. Suggests intelligence and depth without revealing identity."
+
+## Variant 3 — Diffraction Profile
+"A human profile rendered as a light diffraction pattern — the shape emerges from interference fringes.
+White on black. Scientific, ethereal, precise. Suitable as an avatar or identity symbol."
+
+## Variant 4 — Grid Dissolution Figure
+"A standing figure rendered only as a disruption in a fine grid — the body is where the grid bends and breaks.
+Monochrome. Expressionist. The figure is implied rather than drawn. Square crop."
+
+## Variant 5 — Topographic Head
+"A head-and-shoulders silhouette filled with dense topographic contour lines, as if the skull is a terrain map.
+Black contours on white ground. Scientific, cartographic, intellectual. Avatar-format crop."

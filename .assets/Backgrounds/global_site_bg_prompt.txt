@@ -1,0 +1,27 @@
+# Global Site Background — Image Generation Prompts
+
+## Artistic Direction
+Geometric abstraction, fractal structures, monochrome or duotone, scientific / intellectual / exploratory mood,
+expressionist minimalism, high contrast, modern research-lab aesthetic.
+
+---
+
+## Variant 1 — Fractal Grid Expanse
+"A vast monochrome fractal grid dissolving into recursive geometric fog. High contrast, black background with fine white
+lines forming Mandelbrot-adjacent lattice structures. Scientific minimalism. Ultra-wide aspect ratio. No text."
+
+## Variant 2 — Penrose Dust Field
+"Penrose tiling fragments scattered across a deep black field, each tile slightly luminous at its edges.
+Duotone: black and cold white. Expressionist, mathematical, meditative. Borderless, seamless tile."
+
+## Variant 3 — Voronoi Depth Map
+"Voronoi diagram rendered as a 3D depth map, extruded cells casting sharp geometric shadows on a near-black surface.
+Monochrome. Stark contrast. Laboratory aesthetic. Suitable as a full-page website background."
+
+## Variant 4 — Neural Lattice Noise
+"Fine white neural-network-like lattice on pure black. Nodes pulse faintly, edges blur at distance into fractal noise.
+Minimal, cold, intellectual. High resolution. Wide-format background image."
+
+## Variant 5 — Crystalline Fault Lines
+"Abstract crystalline fault-line pattern, monochrome, white fractures on black stone. Expressionist geometry.
+Slight depth illusion through line-weight variation. Research-lab aesthetic. Seamless background."

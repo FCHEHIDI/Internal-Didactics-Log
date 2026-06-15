@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search &mdash; Internal Didactics Log</title>
+  <meta name="description" content="Search all entries in the Internal Didactics Log by keyword, tag, or date.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page-search">
+
+  <canvas id="fractal-bg" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+
+    <!-- ── Navigation ─────────────────────────────────────── -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">IDL</a>
+      <div class="nav-links">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="search.html"   class="nav-link active" aria-current="page">Search</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+    </nav>
+
+    <!-- ── Hero — Radar Sweep + Concentric Rings ──────────── -->
+    <header class="search-hero" role="banner" id="top">
+      <div class="radar-sweep" aria-hidden="true"></div>
+      <div class="container">
+        <p class="hero-eyebrow">Query Interface</p>
+        <h1 class="hero-title">Search<span class="cursor" aria-hidden="true"></span></h1>
+        <p class="hero-desc">Traverse the log. Find the signal.</p>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <section class="section" style="padding-top: var(--s6);">
+
+        <!-- ── Search form ────────────────────────────────── -->
+        <form id="search-form" class="search-form" role="search" aria-label="Search entries">
+          <label for="search-input" class="visually-hidden">Search query</label>
+          <input
+            type="search"
+            id="search-input"
+            class="search-input"
+            placeholder="keyword, #tag, or 2026-06&hellip;"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search"
+          >
+          <button type="submit" class="search-btn">Execute</button>
+        </form>
+
+        <!-- ── Tag filter chips ───────────────────────────── -->
+        <div class="search-filters" role="group" aria-label="Filter by tag">
+          <span class="filter-label">Tags:</span>
+          <a href="#" class="tag" data-filter="#mathematics">mathematics</a>
+          <a href="#" class="tag" data-filter="#security">security</a>
+          <a href="#" class="tag" data-filter="#agents">agents</a>
+          <a href="#" class="tag" data-filter="#architecture">architecture</a>
+          <a href="#" class="tag" data-filter="#cryptography">cryptography</a>
+          <a href="#" class="tag" data-filter="#linear-algebra">linear-algebra</a>
+        </div>
+
+        <!-- ── Results ───────────────────────────────────── -->
+        <div
+          id="search-results"
+          role="region"
+          aria-live="polite"
+          aria-label="Search results"
+        ></div>
+
+        <!-- ── Tips callout ──────────────────────────────── -->
+        <div class="callout note" style="margin-top: var(--s6);">
+          <div class="callout-label">Search Tips</div>
+          <ul style="font-size: var(--text-small); color: var(--chalk); padding-left: var(--s4); line-height: 1.9;">
+            <li>Exact phrase: <code>"kernel decomposition"</code></li>
+            <li>Tag filter: <code>#security</code> &nbsp; <code>#linear-algebra</code></li>
+            <li>Date prefix: <code>2026-06</code> &mdash; returns all June 2026 entries</li>
+            <li>Year only: <code>2026</code> &mdash; returns all entries for that year</li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <span>Internal Didactics Log</span>
+      <a href="#top" class="footer-top">&uarr; Top</a>
+    </footer>
+
+  </div><!-- /.site-wrapper -->
+
+  <script src="js/fractal-bg.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

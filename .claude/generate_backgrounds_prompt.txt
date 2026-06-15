@@ -1,0 +1,37 @@
+# Generate Backgrounds — Prompt
+
+## Purpose
+Use this prompt to generate or regenerate background image generation prompts for the IDL visual identity.
+Each background zone has its own artistic brief.
+
+---
+
+## Prompt
+
+You are a visual identity designer and AI art director for a scientific research journal website
+called the "Internal Didactics Log" (IDL).
+
+Generate image generation prompts (suitable for DALL·E, Midjourney, or Stable Diffusion) for the following
+background zones of the site. Each zone must have 3–5 variants.
+
+Zones:
+1. Global site background
+2. Journal entry header background
+3. Glossary page background
+4. Search page background
+5. Avatar / profile section background
+
+All backgrounds must follow this artistic direction:
+- Geometric abstraction
+- Fractal or recursive structures
+- Monochrome (black/white) or cold duotone
+- Scientific / intellectual / exploratory mood
+- Expressionist minimalism
+- High contrast
+- Modern research-lab aesthetic
+
+For each variant, provide:
+- A descriptive title
+- A full generation prompt (2–4 sentences)
+
+Ensure coherence across all zones — they should feel like they belong to the same visual universe.

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: entry.html
+  ====================
+  Use for individual journal entries.
+  Place at: site/{{YYYY}}/{{MM}}/{{DD_slug}}.html
+
+  Template variables — replace ALL before publishing:
+    {{ENTRY_TITLE}}       Full entry title (e.g. "Matrix Kernel — Null Space")
+    {{ENTRY_DATE}}        ISO date: YYYY-MM-DD
+    {{ENTRY_YEAR}}        4-digit year
+    {{ENTRY_MONTH_NUM}}   Zero-padded month: MM
+    {{ENTRY_MONTH_NAME}}  Month name: e.g. "June"
+    {{ENTRY_ABSTRACT}}    2–4 sentence abstract
+    {{ENTRY_TAGS}}        Space-separated tag spans (see card-tags below)
+    {{PREV_URL}}          Relative URL to previous entry (or index.html if first)
+    {{PREV_TITLE}}        Title of previous entry
+    {{NEXT_URL}}          Relative URL to next entry (or index.html if last)
+    {{NEXT_TITLE}}        Title of next entry
+
+  CSS path depth: ../../css/main.css  (entry is 2 levels deep: YYYY/MM/)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ENTRY_TITLE}} &mdash; IDL</title>
+  <meta name="description" content="{{ENTRY_ABSTRACT}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body class="page-entry">
+
+  <canvas id="fractal-bg" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+
+    <!-- ── Navigation ─────────────────────────────────────── -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+      <a href="../../index.html" class="nav-logo">IDL</a>
+      <div class="nav-links">
+        <a href="../../index.html"    class="nav-link">Home</a>
+        <a href="../../search.html"   class="nav-link">Search</a>
+        <a href="../../glossary.html" class="nav-link">Glossary</a>
+      </div>
+    </nav>
+
+    <!-- ── Hero — Interference Pattern Stripe ─────────────── -->
+    <header class="entry-hero" role="banner" id="top">
+      <div class="container">
+        <p class="hero-eyebrow">{{ENTRY_DATE}}</p>
+        <h1 class="hero-title">{{ENTRY_TITLE}}</h1>
+      </div>
+    </header>
+
+    <!-- ── Breadcrumb ─────────────────────────────────────── -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <a href="../index.html">{{ENTRY_YEAR}}</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <a href="index.html">{{ENTRY_MONTH_NAME}}</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">{{ENTRY_TITLE}}</span>
+      </nav>
+    </div>
+
+    <main id="main">
+      <div class="container entry-content">
+        <div class="entry-layout">
+
+          <!-- ── Article body ─────────────────────────────── -->
+          <article class="entry-body">
+
+            <!-- Abstract -->
+            <div class="entry-abstract">
+              <div class="abstract-label">Abstract</div>
+              <p class="abstract-text">{{ENTRY_ABSTRACT}}</p>
+            </div>
+
+            <!-- Cover media (hero image for feed + article header) -->
+            <figure class="entry-cover">
+              <img src="media/illustrations/{{cover-image-file}}" alt="{{cover alt text}}">
+              <figcaption><strong>Cover</strong> &mdash; {{Cover image caption.}}</figcaption>
+            </figure>
+
+            <!-- Context -->
+            <h2 id="context">Context</h2>
+            <p>{{What prompted this entry. What prior work or problem connects here.}}</p>
+
+            <!-- Exploration -->
+            <h2 id="exploration">Exploration</h2>
+
+            <h3 id="section-1">{{Section 1 Title}}</h3>
+            <p>{{Content.}}</p>
+
+            <h3 id="section-2">{{Section 2 Title}}</h3>
+            <p>{{Content.}}</p>
+
+            <!-- Code block (duplicate as needed) -->
+            <pre><span class="code-lang">{{lang}}</span><code>{{code content}}</code></pre>
+
+            <!-- Callout block (note | definition | insight | warning) -->
+            <div class="callout definition">
+              <div class="callout-label">Definition</div>
+              <p style="font-size: var(--text-small); color: var(--chalk);">{{Formal definition.}}</p>
+            </div>
+
+            <!-- Figure (duplicate as needed) -->
+            <figure>
+              <img src="media/diagrams/{{filename}}" alt="{{alt text}}">
+              <figcaption><strong>Fig. 1</strong> &mdash; {{Caption.}}</figcaption>
+            </figure>
+
+            <!-- Media gallery (news-feed / editorial style) -->
+            <div class="media-grid">
+              <figure>
+                <img src="media/illustrations/{{image-1-file}}" alt="{{image 1 alt}}">
+                <figcaption><strong>Media 1</strong> &mdash; {{Caption.}}</figcaption>
+              </figure>
+              <figure>
+                <img src="media/illustrations/{{image-2-file}}" alt="{{image 2 alt}}">
+                <figcaption><strong>Media 2</strong> &mdash; {{Caption.}}</figcaption>
+              </figure>
+              <figure>
+                <video controls preload="metadata">
+                  <source src="media/illustrations/{{video-file}}" type="video/mp4">
+                </video>
+                <figcaption><strong>Media 3</strong> &mdash; {{Video caption.}}</figcaption>
+              </figure>
+            </div>
+
+            <!-- Findings -->
+            <h2 id="findings">Findings</h2>
+            <p>{{What was established, derived, or understood. Precise and direct.}}</p>
+
+            <!-- Open Questions -->
+            <h2 id="open-questions">Open Questions</h2>
+            <ul class="open-questions">
+              <li>{{Unresolved question or follow-up thread.}}</li>
+              <li>{{Follow-up to investigate.}}</li>
+            </ul>
+
+            <!-- References -->
+            <h2 id="references">References</h2>
+            <ol style="padding-left: var(--s5); font-size: var(--text-small); line-height: 2;">
+              <li><a href="{{URL}}">{{Author}}. <em>{{Title}}</em>. {{Year}}.</a></li>
+            </ol>
+
+            <!-- Entry metadata -->
+            <div class="entry-meta">
+              <div class="meta-group">
+                <span class="meta-label">Date</span>
+                <span class="meta-value">{{ENTRY_DATE}}</span>
+              </div>
+              <div class="meta-group">
+                <span class="meta-label">Tags</span>
+                <div class="card-tags">
+                  <!-- TEMPLATE: one .tag per entry tag -->
+                  <span class="tag">{{tag1}}</span>
+                  <span class="tag">{{tag2}}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prev / Next navigation -->
+            <nav class="entry-nav" aria-label="Entry navigation">
+              <a href="{{PREV_URL}}" class="entry-nav-item prev">
+                <div class="nav-direction">&larr; Previous</div>
+                <div class="nav-entry-title">{{PREV_TITLE}}</div>
+              </a>
+              <a href="{{NEXT_URL}}" class="entry-nav-item next">
+                <div class="nav-direction">Next &rarr;</div>
+                <div class="nav-entry-title">{{NEXT_TITLE}}</div>
+              </a>
+            </nav>
+
+          </article>
+
+          <!-- ── Table of Contents (sidebar) ──────────────── -->
+          <aside class="entry-toc" aria-label="Table of contents">
+            <div class="toc-title">Contents</div>
+            <ul class="toc-list" role="list">
+              <li><a href="#context">Context</a></li>
+              <li><a href="#exploration">Exploration</a></li>
+              <li class="toc-h3"><a href="#section-1">{{Section 1}}</a></li>
+              <li class="toc-h3"><a href="#section-2">{{Section 2}}</a></li>
+              <li><a href="#findings">Findings</a></li>
+              <li><a href="#open-questions">Open Questions</a></li>
+              <li><a href="#references">References</a></li>
+            </ul>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <span>Internal Didactics Log</span>
+      <a href="#top" class="footer-top">&uarr; Top</a>
+    </footer>
+
+  </div><!-- /.site-wrapper -->
+
+  <script src="../../js/fractal-bg.js"></script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

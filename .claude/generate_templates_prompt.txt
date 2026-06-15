@@ -1,0 +1,33 @@
+# Generate Templates — Prompt
+
+## Purpose
+Use this prompt to generate or regenerate the Markdown templates used throughout the IDL site.
+
+---
+
+## Prompt
+
+You are a technical writer and information architect for a research journal website called the
+"Internal Didactics Log" (IDL).
+
+Generate complete Markdown templates for the following page types. Each template should:
+- Include YAML front matter (title, date, tags, type)
+- Use a consistent heading hierarchy (H1 → H2 → H3)
+- Include placeholder sections appropriate to the page type
+- Support media embeds (images, diagrams, code blocks)
+- Feel like a professional lab notebook or research journal
+
+Templates to generate:
+
+1. **homepage_template.md** — site landing page with navigation, recent entries, tagline
+2. **yearly_index_template.md** — index of all months and entries for a given year
+3. **monthly_index_template.md** — index of all entries for a given month, with brief abstracts
+4. **entry_template.md** — individual journal entry with: abstract, context, exploration, findings,
+   open questions, references, tags, media embeds
+5. **glossary_template.md** — alphabetical terminology index with term definitions and cross-references
+6. **search_template.md** — search interface page with instructions and result display structure
+
+Visual identity notes:
+- Monochrome, minimal, high-contrast
+- Scientific, intellectual tone
+- No decorative prose — direct, precise, dense

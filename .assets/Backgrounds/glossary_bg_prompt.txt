@@ -1,0 +1,27 @@
+# Glossary Background — Image Generation Prompts
+
+## Artistic Direction
+The glossary background should evoke encyclopedic precision, taxonomy, and structured knowledge.
+Monochrome. High contrast. Geometric or typographic abstraction. Scientific reference mood.
+
+---
+
+## Variant 1 — Dendrogram Forest
+"A monochrome dendrogram structure — branching taxonomy tree — rendered in fine white lines on black.
+No labels. Pure structural geometry. Dense, precise, encyclopedic. Full-page background."
+
+## Variant 2 — Binary Lattice Weave
+"An interlocking binary lattice pattern, like woven logic gates, monochrome, black and white.
+Expressionist, cold, computational. Slight depth through overlapping planes. Background texture."
+
+## Variant 3 — Periodic Table Ghost
+"A ghost-faded periodic table grid overlaid on a black background. Only the grid lines remain — no element symbols.
+White on black. Scientific, archival, minimal. Background image for a knowledge index page."
+
+## Variant 4 — Radial Index Burst
+"A radial burst of thin white lines from a central vanishing point on a black field.
+Lines are evenly spaced, suggesting infinite categorization outward. Monochrome. Minimal. Wide format."
+
+## Variant 5 — Circuit Ruin
+"An abstract printed-circuit-board pattern rendered as ruins — some traces broken, others fading.
+Monochrome, black background, white traces. Expressionist decay of structured knowledge. Background texture."

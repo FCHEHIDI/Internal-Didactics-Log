@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Internal Didactics Log</title>
+  <meta name="description" content="Send a message to Internal Didactics Log.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page-contact">
+  <canvas id="fractal-bg" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="IDL Home">IDL</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="log.html" class="nav-link">Log</a>
+        <a href="contact.html" class="nav-link active" aria-current="page">Contact</a>
+      </div>
+    </nav>
+
+    <header class="search-hero" role="banner" id="top">
+      <div class="container">
+        <p class="hero-eyebrow">Public Channel</p>
+        <h1 class="hero-title">Contact</h1>
+        <p class="hero-desc">Use this page to send a direct message.</p>
+      </div>
+      <div class="radar-sweep" aria-hidden="true"></div>
+    </header>
+
+    <main id="main" class="container">
+      <section class="section" aria-labelledby="contact-heading">
+        <h2 class="section-title" id="contact-heading">Send a Message</h2>
+        <div class="callout note contact-card">
+          <div class="callout-label">Contact Form</div>
+          <form id="contact-form" class="admin-form" style="margin-top: 0.75rem;">
+            <div class="admin-field">
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" required>
+            </div>
+            <div class="admin-field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" required>
+            </div>
+            <div class="admin-field admin-field-full">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="admin-field admin-field-full" style="display:none;">
+              <label for="contact-website">Website</label>
+              <input id="contact-website" name="website" autocomplete="off" tabindex="-1">
+            </div>
+            <button type="submit" class="feed-btn">Send</button>
+            <span id="contact-status" class="feed-status" aria-live="polite"></span>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <span>Internal Didactics Log</span>
+      <div>
+        <a href="#top" class="footer-top" aria-label="Back to top">&uarr; Top</a>
+        <a href="admin.html" class="footer-top" style="margin-left: 0.75rem;">Admin</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/fractal-bg.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/runtime.js"></script>
+  <script src="js/contact-page.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

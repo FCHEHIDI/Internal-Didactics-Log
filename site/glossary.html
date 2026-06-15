@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossary &mdash; Internal Didactics Log</title>
+  <meta name="description" content="A living index of terms, concepts, and definitions encountered across the log.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page-glossary">
+
+  <canvas id="fractal-bg" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+
+    <!-- ── Navigation ─────────────────────────────────────── -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">IDL</a>
+      <div class="nav-links">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="search.html"   class="nav-link">Search</a>
+        <a href="glossary.html" class="nav-link active" aria-current="page">Glossary</a>
+      </div>
+    </nav>
+
+    <!-- ── Hero — Radial Index Burst ──────────────────────── -->
+    <header class="glossary-hero" role="banner" id="top">
+      <div class="container">
+        <p class="hero-eyebrow">Knowledge Index</p>
+        <h1 class="hero-title">Glossary</h1>
+        <p class="hero-desc">
+          A living index of terms, concepts, and definitions encountered across the log.<br>
+          Cross-referenced with journal entries where applicable.
+        </p>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <section class="section" style="padding-top: var(--s6);">
+
+        <!-- ── Alphabetical navigation ───────────────────── -->
+        <nav class="glossary-alpha-nav" aria-label="Jump to letter">
+          <!--
+            TEMPLATE — mark letters with entries as active links,
+            empty letters get class="alpha-link empty" (non-interactive).
+            Update this list as entries are added.
+          -->
+          <a href="#A" class="alpha-link">A</a>
+          <a href="#B" class="alpha-link empty">B</a>
+          <a href="#C" class="alpha-link empty">C</a>
+          <a href="#D" class="alpha-link empty">D</a>
+          <a href="#E" class="alpha-link empty">E</a>
+          <a href="#F" class="alpha-link empty">F</a>
+          <a href="#G" class="alpha-link empty">G</a>
+          <a href="#H" class="alpha-link empty">H</a>
+          <a href="#I" class="alpha-link empty">I</a>
+          <a href="#J" class="alpha-link empty">J</a>
+          <a href="#K" class="alpha-link empty">K</a>
+          <a href="#L" class="alpha-link empty">L</a>
+          <a href="#M" class="alpha-link empty">M</a>
+          <a href="#N" class="alpha-link empty">N</a>
+          <a href="#O" class="alpha-link empty">O</a>
+          <a href="#P" class="alpha-link empty">P</a>
+          <a href="#Q" class="alpha-link empty">Q</a>
+          <a href="#R" class="alpha-link empty">R</a>
+          <a href="#S" class="alpha-link empty">S</a>
+          <a href="#T" class="alpha-link empty">T</a>
+          <a href="#U" class="alpha-link empty">U</a>
+          <a href="#V" class="alpha-link empty">V</a>
+          <a href="#W" class="alpha-link empty">W</a>
+          <a href="#X" class="alpha-link empty">X</a>
+          <a href="#Y" class="alpha-link empty">Y</a>
+          <a href="#Z" class="alpha-link empty">Z</a>
+        </nav>
+
+        <!--
+          TEMPLATE — Glossary section (one per active letter).
+          Duplicate the entire .glossary-section block for each letter.
+          Within each section, duplicate .glossary-term for each definition.
+
+          Variables:
+            {{LETTER}}        — uppercase single letter (A–Z)
+            {{TERM_NAME}}     — term as displayed (title case or as written)
+            {{DEFINITION}}    — precise definition, 1–3 sentences
+            {{FIELD}}         — domain tag (e.g., mathematics, security, agents)
+            {{RELATED_ID}}    — anchor id of a related term
+            {{RELATED_NAME}}  — display name of the related term
+            {{ENTRY_PATH}}    — relative path to a related journal entry
+            {{ENTRY_TITLE}}   — title of the related journal entry
+        -->
+        <div class="glossary-section" id="A">
+          <div class="glossary-letter" aria-hidden="true">A</div>
+
+          <div class="glossary-term">
+            <h2 class="term-name">{{Term Name}}</h2>
+            <p class="term-definition">{{Precise definition. One to three sentences maximum.}}</p>
+            <span class="tag">{{field}}</span>
+            <p class="term-seealso">
+              See also:
+              <a href="#{{RELATED_ID}}">{{Related Term}}</a> &middot;
+              <a href="{{ENTRY_PATH}}">{{Entry Title}}</a>
+            </p>
+          </div>
+
+          <!-- Add more .glossary-term blocks here -->
+        </div>
+
+        <!-- Add more .glossary-section blocks here (B, C, D, …) -->
+
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <span>Internal Didactics Log</span>
+      <a href="#top" class="footer-top">&uarr; Top</a>
+    </footer>
+
+  </div><!-- /.site-wrapper -->
+
+  <script src="js/fractal-bg.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal Didactics Log</title>
+  <meta name="description" content="A public research journal about architectures, models, protocols, and moving systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page-home">
+
+  <!-- Neural Lattice Noise — global site background (fractal-bg.js) -->
+  <canvas id="fractal-bg" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+
+    <!-- ── Navigation ─────────────────────────────────────── -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="IDL Home">IDL</a>
+      <div class="nav-links">
+        <a href="index.html"   class="nav-link active" aria-current="page">Home</a>
+        <a href="log.html" class="nav-link">Log</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </nav>
+
+    <!-- ── Hero — Neural Lattice / Penrose mood ───────────── -->
+    <header class="site-hero" role="banner" id="top">
+      <div class="container">
+        <p class="hero-eyebrow">Research Journal &middot; Est. 2026</p>
+        <h1 class="hero-title">
+          Internal<br>
+          Didactics<br>
+          Log<span class="cursor" aria-hidden="true"></span>
+        </h1>
+        <p class="hero-desc">
+          Public research notes for systems architecture, model design,<br>
+          security protocols, and computational reasoning.
+        </p>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+
+      <section class="section" aria-labelledby="profile-heading">
+        <h2 class="section-title" id="profile-heading">Profile</h2>
+        <article class="profile-section">
+          <div class="profile-panel">
+            <p class="profile-kicker">Research Persona</p>
+            <h3 class="profile-title">In the Lab of Moving Systems</h3>
+            <p class="profile-text">
+              I work at the edge where systems think, shift, and reveal their structure.
+              Most days I’m moonwalking through architectures, unspooling hidden invariants,
+              zooming in and out of cognitive layers to see how reasoning actually moves.
+              I explore models the way others explore landscapes — mapping flows,
+              testing boundaries, and shaping protocols that stay elegant under pressure.
+              My work lives between intuition and formalism, where ideas become systems
+              and systems become tools for understanding.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ── Recent Entries ─────────────────────────────── -->
+      <section class="section" aria-labelledby="recent-heading">
+        <h2 class="section-title" id="recent-heading">Latest Feed</h2>
+        <div class="search-form" style="margin-bottom: 1rem;">
+          <input id="feed-query" class="search-input" placeholder="Search title, summary, or tag...">
+        </div>
+        <div class="feed-toolbar" role="group" aria-label="Feed mode">
+          <button id="feed-prev" class="feed-btn" type="button">Prev</button>
+          <button id="feed-next" class="feed-btn" type="button">Next</button>
+          <span id="feed-status" class="feed-status" aria-live="polite"></span>
+        </div>
+
+        <div id="feed-grid" class="entry-grid"></div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <span>Internal Didactics Log</span>
+      <div>
+        <a href="#top" class="footer-top" aria-label="Back to top">&uarr; Top</a>
+        <a href="admin.html" class="footer-top" style="margin-left: 0.75rem;">Admin</a>
+      </div>
+    </footer>
+
+  </div><!-- /.site-wrapper -->
+
+  <script src="js/fractal-bg.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/runtime.js"></script>
+  <script src="js/public-home.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

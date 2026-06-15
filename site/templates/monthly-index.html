@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: monthly-index.html
+  =============================
+  Use for monthly entry indexes.
+  Place at: site/{{YYYY}}/{{MM}}/index.html
+
+  Template variables:
+    {{YYYY}}           4-digit year
+    {{MM}}             Zero-padded month number: 01–12
+    {{MONTH_NAME}}     Full month name: e.g. "June"
+    {{ENTRY_COUNT}}    Number of entries this month
+
+  CSS path depth: ../../css/main.css  (2 levels deep)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{MONTH_NAME}} {{YYYY}} &mdash; Internal Didactics Log</title>
+  <meta name="description" content="{{MONTH_NAME}} {{YYYY}} research log entries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Condensed:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body class="page-month">
+
+  <canvas id="fractal-bg" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+
+    <!-- ── Navigation ─────────────────────────────────────── -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+      <a href="../../index.html" class="nav-logo">IDL</a>
+      <div class="nav-links">
+        <a href="../../index.html"    class="nav-link">Home</a>
+        <a href="../../search.html"   class="nav-link">Search</a>
+        <a href="../../glossary.html" class="nav-link">Glossary</a>
+      </div>
+    </nav>
+
+    <!-- ── Hero — Interference Pattern mood ──────────────── -->
+    <header class="entry-hero" role="banner" id="top">
+      <div class="container">
+        <p class="hero-eyebrow">{{YYYY}} &middot; Monthly Index</p>
+        <h1 class="hero-title">{{MONTH_NAME}}</h1>
+        <p class="hero-desc">{{ENTRY_COUNT}} entries.</p>
+      </div>
+    </header>
+
+    <!-- ── Breadcrumb ─────────────────────────────────────── -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <a href="../index.html">{{YYYY}}</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">{{MONTH_NAME}}</span>
+      </nav>
+    </div>
+
+    <main id="main" class="container">
+
+      <!-- ── Entry grid ─────────────────────────────────── -->
+      <section class="section" aria-labelledby="entries-heading">
+        <h2 class="section-title" id="entries-heading">Entries</h2>
+        <div class="entry-grid">
+
+          <!--
+            TEMPLATE — Entry card.
+            Duplicate for each entry in this month.
+            Replace {{...}} placeholders with real values.
+          -->
+          <a href="{{DD_slug}}.html" class="entry-card">
+            <figure class="card-media" aria-hidden="true">
+              <img src="media/illustrations/{{cover-image-file}}" alt="">
+            </figure>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-date">{{YYYY-MM-DD}}</span>
+                <span class="tag">{{category}}</span>
+              </div>
+              <span class="card-title">{{Entry Title &mdash; Subtitle}}</span>
+              <span class="card-abstract">{{Short summary in 1–2 sentences.}}</span>
+              <div class="card-tags">
+                <span class="tag">{{tag1}}</span>
+                <span class="tag">{{tag2}}</span>
+                <span class="tag">{{tag3}}</span>
+              </div>
+              <span class="card-read-more">Read entry &rarr;</span>
+            </div>
+          </a>
+          <!-- END TEMPLATE -->
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <span>Internal Didactics Log</span>
+      <a href="#top" class="footer-top">&uarr; Top</a>
+    </footer>
+
+  </div><!-- /.site-wrapper -->
+
+  <script src="../../js/fractal-bg.js"></script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

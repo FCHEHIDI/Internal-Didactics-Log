@@ -1,0 +1,27 @@
+# Avatar Section Background — Image Generation Prompts
+
+## Artistic Direction
+The avatar background should provide a compelling, abstract context for a profile or identity section.
+It should not compete with the subject — dark, recessive, geometric. Monochrome or duotone. Expressionist.
+
+---
+
+## Variant 1 — Shadow Lattice Field
+"A deep black field with an extremely subtle geometric lattice barely visible — white lines at 5% opacity,
+forming a faint diamond grid. Expressionist restraint. Minimalist. Background for a profile or avatar section."
+
+## Variant 2 — Oblique Gradient Geometry
+"Oblique parallel lines in white on black, varying in thickness from hairline to 3px, arranged like a barcode
+torn apart. Monochrome. High contrast at edges, fading to near-black at center. Avatar background."
+
+## Variant 3 — Fractal Halo Blur
+"A fractal structure — Julia set fragment — rendered slightly out of focus, as if behind frosted glass.
+Monochrome, white on black. Depth and mystery. Suitable as background behind an avatar or portrait crop."
+
+## Variant 4 — Geodesic Sphere Fragment
+"A partial geodesic sphere, only the wireframe visible, white on black, cropped so the sphere edge is off-center.
+Expressionist scientific geometry. Minimal. High contrast. Avatar section background."
+
+## Variant 5 — Axonometric Abyss
+"An axonometric grid extending to infinity into a black void, white grid lines, high contrast at the foreground
+fading to zero at the horizon. Architectural, precise, cold. Background for identity or about section."

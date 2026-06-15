@@ -1,0 +1,33 @@
+# Scaffold IDL Structure — Prompt
+
+## Purpose
+Use this prompt to ask an AI assistant to scaffold the complete Internal Didactics Log folder structure,
+including all directories, placeholder files, and naming conventions.
+
+---
+
+## Prompt
+
+You are a technical architect. Scaffold the complete folder structure for an "Internal Didactics Log" (IDL) website.
+
+The IDL is a research journal structured by year → month → entry.
+It uses a modern scientific visual identity: geometric, expressionist, fractal, minimal, monochrome, high-contrast.
+
+Generate the following structure with all files and directories:
+
+```
+├── .assets/
+│   ├── Backgrounds/         ← image generation prompt files for each background zone
+│   └── Avatar/              ← avatar/silhouette prompt files
+├── .claude/                 ← AI assistant prompt files for regenerating each artifact
+├── internal-didactics/
+│   ├── index.md             ← homepage
+│   ├── search.md            ← search interface
+│   ├── glossary.md          ← terminology index
+│   ├── YYYY/MM/             ← journal entries organized by date
+│   └── templates/           ← reusable markdown templates
+└── idl-visual-identity/     ← design system documents
+```
+
+For each file, provide a minimal but meaningful placeholder that reflects its purpose.
+Preserve any files that already exist.

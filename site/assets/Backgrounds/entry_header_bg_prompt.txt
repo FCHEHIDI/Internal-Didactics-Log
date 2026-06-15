@@ -1,0 +1,27 @@
+# Entry Header Background — Image Generation Prompts
+
+## Artistic Direction
+Each journal entry header should feel like the opening page of a lab notebook section — focused, precise, slightly dramatic.
+Monochrome or duotone. High contrast. Geometric or fractal texture. Expressionist scientific mood.
+
+---
+
+## Variant 1 — Angular Wave Collapse
+"A sharp geometric wave collapsing into a horizontal line at the center. Black background, white angular strokes.
+Expressionist, mathematical, high contrast. Suitable as a wide banner header. No text."
+
+## Variant 2 — Interference Pattern Stripe
+"A monochrome interference pattern — two overlapping circular wave systems producing a Moiré-like stripe across
+a black field. Scientific, precise, cold. Wide-format header crop."
+
+## Variant 3 — Recursive Triangle Horizon
+"Recursive Sierpinski-like triangles fading into a dark horizon. Black and white. Minimal. The triangles diminish
+toward the right edge, creating directional tension. Header banner proportion."
+
+## Variant 4 — Graph Paper Abyss
+"Dense graph-paper grid dissolving into black at the edges, as if the paper is burning away. Monochrome.
+Cold white on black. Intellectual, archival, slightly ominous. Header image format."
+
+## Variant 5 — Topographic Contour Slash
+"Topographic contour lines slashed diagonally across a black field. Lines are pure white, extremely thin,
+high density. Expressionist scientific abstraction. Wide banner format."

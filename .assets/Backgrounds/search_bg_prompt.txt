@@ -1,0 +1,27 @@
+# Search Page Background — Image Generation Prompts
+
+## Artistic Direction
+The search page background should suggest scanning, traversal, signal detection, and pattern recognition.
+Monochrome or duotone. High contrast. Dynamic geometric tension. Scientific / computational mood.
+
+---
+
+## Variant 1 — Radar Sweep Trace
+"A radar sweep arc traced across a black field, the arc leaving a fading white trail. Concentric rings in the background,
+extremely faint. Monochrome. High contrast. No text. Evokes scanning, discovery. Wide background."
+
+## Variant 2 — Signal Noise Burst
+"Abstract oscilloscope waveform exploding outward from the left edge, dissolving into noise at the right.
+Black background, white waveform. Scientific, raw, dynamic. Banner-format background image."
+
+## Variant 3 — Search Space Tessellation
+"A Voronoi tessellation with one central cell dramatically larger than its neighbors, highlighted by brighter edges.
+Monochrome. Suggests proximity search, nearest-neighbor logic. Full-page background."
+
+## Variant 4 — Recursive Depth Scan
+"Concentric rectangles nested to infinite depth, white on black, converging on a central vanishing point.
+Expressionist, hypnotic, computational. Minimal. Full-page background suitable for a search interface."
+
+## Variant 5 — Particle Stream Matrix
+"A stream of fine white particles flowing diagonally across a black field, organized into loosely columnar structures.
+Suggests data traversal, vector search. Monochrome. High contrast. Wide-format background."
