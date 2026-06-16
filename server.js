@@ -16,7 +16,6 @@ app.use(express.json({ limit: '2mb' }));
 app.use(express.static(path.join(__dirname, 'site')));
 app.use('/assets', express.static(path.join(__dirname, '.assets')));
 
-const sessions = new Map();
 const rateState = new Map();
 
 function ensureUploads() {
@@ -78,13 +77,43 @@ function parseCookies(req) {
   return out;
 }
 
-function setSessionCookie(res, sid) {
+function setSessionCookie(res, token) {
   const maxAgeSec = Math.floor(SESSION_TTL_MS / 1000);
-  res.setHeader('Set-Cookie', `idl_admin_sid=${encodeURIComponent(sid)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAgeSec}`);
+  res.setHeader('Set-Cookie', `idl_admin_sid=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAgeSec}`);
 }
 
 function clearSessionCookie(res) {
   res.setHeader('Set-Cookie', 'idl_admin_sid=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0');
+}
+
+// ---------------------------------------------------------------------------
+// Stateless HMAC session tokens — survives server restarts and cold starts.
+// Token format: `${issuedAt}.${hmac-sha256-hex}`
+// Identical approach to gcp/backend/src/server.js.
+// ---------------------------------------------------------------------------
+
+function createSessionToken() {
+  const issuedAt = String(Date.now());
+  const sig = crypto.createHmac('sha256', ADMIN_PASSWORD).update(issuedAt).digest('hex');
+  return `${issuedAt}.${sig}`;
+}
+
+function verifySessionToken(token) {
+  if (!token || typeof token !== 'string') return false;
+  const dot = token.lastIndexOf('.');
+  if (dot < 0) return false;
+  const payload = token.slice(0, dot);
+  const sig = token.slice(dot + 1);
+  const expected = crypto.createHmac('sha256', ADMIN_PASSWORD).update(payload).digest('hex');
+  if (sig.length !== expected.length) return false;
+  try {
+    if (!crypto.timingSafeEqual(Buffer.from(sig, 'hex'), Buffer.from(expected, 'hex'))) return false;
+  } catch (_) {
+    return false;
+  }
+  const issuedAt = Number(payload);
+  if (!Number.isFinite(issuedAt) || Date.now() - issuedAt > SESSION_TTL_MS) return false;
+  return true;
 }
 
 function slugify(text) {
@@ -170,16 +199,10 @@ function antiSpam(limit, windowMs) {
 
 function authRequired(req, res, next) {
   const cookies = parseCookies(req);
-  const sid = cookies.idl_admin_sid || '';
-  const session = sessions.get(sid);
-
-  if (!session || session.expiresAt < Date.now()) {
+  const token = cookies.idl_admin_sid || '';
+  if (!verifySessionToken(token)) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
-
-  session.expiresAt = Date.now() + SESSION_TTL_MS;
-  sessions.set(sid, session);
-
   next();
 }
 
@@ -189,17 +212,11 @@ app.post('/api/admin/login', (req, res) => {
     return res.status(401).json({ error: 'Invalid credentials' });
   }
 
-  const sid = crypto.randomUUID();
-  sessions.set(sid, { expiresAt: Date.now() + SESSION_TTL_MS });
-  setSessionCookie(res, sid);
-
+  setSessionCookie(res, createSessionToken());
   return res.json({ ok: true });
 });
 
-app.post('/api/admin/logout', authRequired, (req, res) => {
-  const cookies = parseCookies(req);
-  const sid = cookies.idl_admin_sid || '';
-  sessions.delete(sid);
+app.post('/api/admin/logout', authRequired, (_req, res) => {
   clearSessionCookie(res);
   return res.json({ ok: true });
 });

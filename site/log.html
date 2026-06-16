@@ -25,54 +25,73 @@
     <header class="entry-hero" role="banner" id="top">
       <div class="container">
         <p id="article-date" class="hero-eyebrow">Published</p>
-        <h1 id="article-title" class="hero-title">Loading article…</h1>
+        <h1 id="article-title" class="hero-title">Loading…</h1>
       </div>
     </header>
 
     <main id="main" class="container entry-content">
-      <article class="entry-body">
-        <figure class="entry-cover">
-          <img id="article-cover" src="/assets/Backgrounds/EntryHeaderBackground.png" alt="Log cover">
-        </figure>
 
-        <p id="article-summary" class="card-abstract"></p>
-
-        <div id="article-content"></div>
-
-        <div id="article-links" class="media-grid"></div>
-
-        <div class="entry-meta">
-          <div class="meta-group">
-            <span class="meta-label">Engagement</span>
-            <div class="card-tags">
-              <button id="like-btn" class="feed-btn" type="button">Like</button>
-              <span id="like-count" class="meta-value">0</span>
-            </div>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">Tags</span>
-            <div id="article-tags" class="card-tags"></div>
-          </div>
+      <!-- Feed section — visible when /log.html has no ?slug= -->
+      <section id="feed-section" style="display:none" aria-labelledby="feed-heading">
+        <h2 class="section-title" id="feed-heading" style="display:none">All Entries</h2>
+        <div class="search-form" style="margin-bottom: 1rem;">
+          <input id="feed-query" class="search-input" placeholder="Search title, summary, or tag…">
         </div>
+        <div class="feed-toolbar" role="group" aria-label="Feed navigation">
+          <button id="feed-prev" class="feed-btn" type="button">Prev</button>
+          <button id="feed-next" class="feed-btn" type="button">Next</button>
+          <span id="feed-status" class="feed-status" aria-live="polite"></span>
+        </div>
+        <div id="feed-grid" class="entry-grid"></div>
+      </section>
 
-        <section class="section" aria-labelledby="comments-heading">
-          <h2 id="comments-heading" class="section-title">Comments</h2>
-          <form id="comment-form" class="admin-form">
-            <div class="admin-field">
-              <label for="comment-name">Name</label>
-              <input id="comment-name" name="name" required>
-            </div>
-            <div class="admin-field admin-field-full">
-              <label for="comment-content">Comment</label>
-              <textarea id="comment-content" name="content" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="feed-btn">Post comment</button>
-            <span id="comment-status" class="feed-status" aria-live="polite"></span>
-          </form>
+      <!-- Article section — visible when ?slug= is present in the URL -->
+      <section id="article-section">
+        <article class="entry-body">
+          <figure class="entry-cover">
+            <img id="article-cover" src="/assets/Backgrounds/EntryHeaderBackground.png" alt="Log cover">
+          </figure>
 
-          <div id="comments-list" class="admin-list" style="margin-top: 1rem;"></div>
-        </section>
-      </article>
+          <p id="article-summary" class="card-abstract"></p>
+
+          <div id="article-content"></div>
+
+          <div id="article-links" class="media-grid"></div>
+
+          <div class="entry-meta">
+            <div class="meta-group">
+              <span class="meta-label">Engagement</span>
+              <div class="card-tags">
+                <button id="like-btn" class="feed-btn" type="button">Like</button>
+                <span id="like-count" class="meta-value">0</span>
+              </div>
+            </div>
+            <div class="meta-group">
+              <span class="meta-label">Tags</span>
+              <div id="article-tags" class="card-tags"></div>
+            </div>
+          </div>
+
+          <section class="section" aria-labelledby="comments-heading">
+            <h2 id="comments-heading" class="section-title">Comments</h2>
+            <form id="comment-form" class="admin-form">
+              <div class="admin-field">
+                <label for="comment-name">Name</label>
+                <input id="comment-name" name="name" required>
+              </div>
+              <div class="admin-field admin-field-full">
+                <label for="comment-content">Comment</label>
+                <textarea id="comment-content" name="content" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="feed-btn">Post comment</button>
+              <span id="comment-status" class="feed-status" aria-live="polite"></span>
+            </form>
+
+            <div id="comments-list" class="admin-list" style="margin-top: 1rem;"></div>
+          </section>
+        </article>
+      </section>
+
     </main>
 
     <footer class="site-footer" role="contentinfo">
@@ -84,6 +103,7 @@
   <script src="js/fractal-bg.js"></script>
   <script src="js/config.js"></script>
   <script src="js/runtime.js"></script>
+  <script src="js/public-home.js"></script>
   <script src="js/article-page.js"></script>
   <script src="js/main.js"></script>
 </body>

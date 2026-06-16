@@ -17,6 +17,24 @@
   const commentForm = document.getElementById('comment-form');
   const commentStatus = document.getElementById('comment-status');
 
+  const articleSection = document.getElementById('article-section');
+  const feedSection = document.getElementById('feed-section');
+
+  // ── Feed / Article routing ──────────────────────────────────────────────
+  // If no ?slug= in URL → show feed (all entries), public-home.js handles loading.
+  // If ?slug= present   → show article viewer (existing behaviour).
+  if (!slug) {
+    if (feedSection) feedSection.style.display = '';
+    if (articleSection) articleSection.style.display = 'none';
+    if (titleEl) titleEl.textContent = 'Log';
+    if (dateEl) dateEl.textContent = 'All entries';
+    return;
+  }
+
+  // Article mode: hide feed, show article
+  if (feedSection) feedSection.style.display = 'none';
+  if (articleSection) articleSection.style.display = '';
+
   function setNoArticleState() {
     document.title = 'Log — Internal Didactics Log';
     titleEl.textContent = 'No log note yet';
@@ -32,33 +50,6 @@
     if (commentForm) {
       commentForm.style.display = 'none';
     }
-  }
-
-  function resolveSlugAndLoad() {
-    if (slug) {
-      loadArticle();
-      return;
-    }
-
-    fetch(idlApiUrl('/api/articles?limit=1&page=1&mode=recent'))
-      .then(function (res) {
-        if (!res.ok) throw new Error('Failed latest log');
-        return res.json();
-      })
-      .then(function (data) {
-        const first = Array.isArray(data.items) ? data.items[0] : null;
-        if (!first || !first.slug) {
-          setNoArticleState();
-          return;
-        }
-
-        slug = first.slug;
-        window.history.replaceState({}, '', 'log.html?slug=' + encodeURIComponent(slug));
-        loadArticle();
-      })
-      .catch(function () {
-        setNoArticleState();
-      });
   }
 
   function esc(str) {
@@ -166,5 +157,5 @@
       });
   });
 
-  resolveSlugAndLoad();
+  loadArticle();
 })();
