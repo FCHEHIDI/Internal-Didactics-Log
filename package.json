@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Internal Didactics Log with public and admin routes",
-  "main": "server.js",
+  "main": "_server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node _server.js",
+    "dev": "node _server.js"
   },
   "dependencies": {
     "express": "^4.19.2",
