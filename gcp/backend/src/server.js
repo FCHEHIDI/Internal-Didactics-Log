@@ -175,7 +175,7 @@ app.get('/ready', async (_req, res) => {
   }
 });
 
-app.post('/api/admin/login', (req, res) => {
+app.post('/api/admin/login', antiSpam(10, 300_000), (req, res) => {
   const password = String(req.body?.password || '');
   if (!password || password !== ADMIN_PASSWORD) {
     return res.status(401).json({ error: 'Invalid credentials' });
@@ -252,7 +252,7 @@ app.get('/api/articles/:slug', async (req, res, next) => {
   }
 });
 
-app.post('/api/articles/:slug/like', async (req, res, next) => {
+app.post('/api/articles/:slug/like', antiSpam(10, 60_000), async (req, res, next) => {
   try {
     const likeCount = await store.incrementLike(req.params.slug);
     if (likeCount === null) return res.status(404).json({ error: 'Article not found' });

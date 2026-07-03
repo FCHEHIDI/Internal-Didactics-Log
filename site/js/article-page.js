@@ -93,6 +93,13 @@
         summaryEl.textContent = article.summary || '';
         likesEl.textContent = String(article.likeCount || 0);
 
+        // Restore liked state from localStorage
+        if (localStorage.getItem('idl_liked_' + slug) === '1') {
+          likeBtn.textContent = 'Liked';
+          likeBtn.classList.add('active');
+          likeBtn.disabled = true;
+        }
+
         if (article.coverImage) {
           coverEl.src = article.coverImage;
         }
@@ -125,10 +132,19 @@
   }
 
   likeBtn.addEventListener('click', function () {
+    likeBtn.disabled = true;
+    likeBtn.textContent = '…';
     fetch(idlApiUrl('/api/articles/' + encodeURIComponent(slug) + '/like'), { method: 'POST' })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         likesEl.textContent = String(data.likeCount || 0);
+        likeBtn.textContent = 'Liked';
+        likeBtn.classList.add('active');
+        localStorage.setItem('idl_liked_' + slug, '1');
+      })
+      .catch(function () {
+        likeBtn.disabled = false;
+        likeBtn.textContent = 'Like';
       });
   });
 
